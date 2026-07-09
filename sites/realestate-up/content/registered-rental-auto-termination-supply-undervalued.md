@@ -1,7 +1,7 @@
 ---
 title: "등록임대 '자동말소' 2.3만 가구가 쏟아진다 — 실수요자가 세입자 낀 급매물을 저평가로 줍는 법(2026)"
 description: "2026년 서울 아파트 임대의무 종료 2만2822호. 보유세에 몰린 임대사업자가 던지는 매물을 실수요자가 안전마진으로 읽는 법을 정리했습니다."
-date: 2026-07-09
+date: 2026-07-23
 category: 내집마련 전략
 slug: registered-rental-auto-termination-supply-undervalued
 tags: 등록임대, 자동말소, 급매물, 저평가, 실수요전략

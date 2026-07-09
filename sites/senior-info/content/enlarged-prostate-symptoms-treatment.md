@@ -1,7 +1,7 @@
 ---
 title: "밤에 소변 때문에 자꾸 깬다면? 전립선비대증 증상·자가진단·치료 총정리"
 description: "60대 넘으면 흔한 전립선비대증. 야간뇨·잔뇨감 등 증상 자가체크(IPSS), PSA 검사, 약물·수술 치료와 건강보험, 생활수칙까지 쉽게 정리했습니다."
-date: 2026-07-09
+date: 2026-07-11
 category: 건강
 slug: enlarged-prostate-symptoms-treatment
 tags: 전립선비대증, 야간뇨, 배뇨장애, 노인건강, PSA검사

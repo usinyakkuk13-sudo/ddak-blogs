@@ -1,7 +1,7 @@
 ---
 title: "'재초환 수억 폭탄' 무서워 눌린 재건축 구축 — 실수요자가 면제·감면을 직접 반영해 진짜 저평가를 가려내는 법(2026)"
 description: "재건축초과이익환수제(재초환) 부담금은 8천만원까지 면제, 1주택 장기보유는 최대 70% 감면. 실거주 실수요자가 실부담금을 직접 계산해 안전마진을 확인하는 법."
-date: 2026-07-08
+date: 2026-07-23
 category: 저평가 근거
 slug: rebuild-recapture-charge-jaechohwan-safety-margin-undervalued
 tags: 재초환, 재건축초과이익환수제, 부담금, 장기보유감면, 저평가

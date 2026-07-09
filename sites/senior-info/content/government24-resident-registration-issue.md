@@ -1,7 +1,7 @@
 ---
 title: "주민등록등본, 주민센터 안 가고 집에서 무료로 — 정부24 발급 따라하기 (2026년)"
 description: "등본 한 장 떼려고 주민센터 가지 마세요. 스마트폰 정부24로 5분이면 무료 발급, 무인발급기까지 어르신용으로 쉽게 정리했습니다."
-date: 2026-07-08
+date: 2026-07-14
 category: 스마트폰
 slug: government24-resident-registration-issue
 tags: 정부24, 주민등록등본, 인터넷발급

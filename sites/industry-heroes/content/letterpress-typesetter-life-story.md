@@ -1,7 +1,7 @@
 ---
 title: "글자 수천 개를 손끝으로 외운 사람 — 어느 활판인쇄 문선공의 인생 이야기"
 description: "지금은 손끝 한 번이면 전 세계가 K-웹툰과 전자책을 봅니다. 그 첫 글자를 납 활자로 한 자 한 자 골라 뽑던 어느 문선공의 인생 이야기입니다."
-date: 2026-07-08
+date: 2026-07-15
 category: 인생 이야기
 slug: letterpress-typesetter-life-story
 tags: 활판인쇄, 문선공, 인생 이야기

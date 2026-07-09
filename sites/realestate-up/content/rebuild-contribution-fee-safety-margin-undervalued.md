@@ -1,7 +1,7 @@
 ---
 title: "재건축 '분담금'이 무서워 눌린 구축 — 실수요자가 분담금을 직접 계산해 진짜 저평가를 고르는 법"
 description: "비례율·권리가액·분담금 공식으로 재건축 구축의 안전마진을 스스로 계산하는 법. 1기 신도시 선도지구 사례로 본 실수요 저평가 판별."
-date: 2026-07-08
+date: 2026-07-22
 category: 내집마련 전략
 slug: rebuild-contribution-fee-safety-margin-undervalued
 tags: 재건축분담금, 비례율, 선도지구, 저평가, 권리가액

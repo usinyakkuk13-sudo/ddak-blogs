@@ -1,7 +1,7 @@
 ---
 title: "카카오톡 영상통화로 손주 얼굴 보기 — 보이스톡·페이스톡 쉬운 설명"
 description: "돈 한 푼 안 들이고 손주와 얼굴 보며 통화하는 법. 페이스톡·보이스톡 켜는 순서, 소리 안 들릴 때 해결까지 큰 글씨로 정리했습니다."
-date: 2026-07-08
+date: 2026-07-18
 category: 스마트폰
 slug: kakaotalk-video-call-grandchildren
 tags: 카카오톡, 영상통화, 보이스톡

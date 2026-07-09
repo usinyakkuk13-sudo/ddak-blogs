@@ -1,7 +1,7 @@
 ---
 title: "PIR로 보는 내 집값 — 소득 대비 얼마나 비싼가"
 description: "부동산 거품론의 핵심 지표 PIR(소득 대비 주택가격 배율)의 뜻과 계산법, 어떻게 읽고 활용하는지를 쉽게 설명합니다."
-date: 2026-07-05
+date: 2026-07-21
 category: 시장 데이터
 slug: pir-explained
 tags: PIR, 소득대비집값, 부동산지표, 거품

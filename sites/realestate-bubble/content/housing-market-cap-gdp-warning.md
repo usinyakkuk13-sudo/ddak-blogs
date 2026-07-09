@@ -1,7 +1,7 @@
 ---
 title: "집값이 나라 경제의 3배가 됐다 — GDP 대비 주택시가총액 3배 돌파가 보내는 경고"
 description: "한국 주택시가총액이 명목 GDP의 3배를 넘어섰다. 소득은 제자리인데 집값만 부풀어 오른 이 배율이 왜 위험 신호인지 데이터로 짚는다."
-date: 2026-07-08
+date: 2026-07-14
 category: 위험 신호
 slug: housing-market-cap-gdp-warning
 tags: 주택시가총액, GDP대비, 고평가, 수도권편중, 부동산거품

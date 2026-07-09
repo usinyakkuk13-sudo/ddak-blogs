@@ -1,7 +1,7 @@
 ---
 title: "전월세신고제 계도기간이 끝났다 — 이제 '진짜 전세가율'이 실거래가로 다 보인다, 실수요자가 저평가 단지를 골라내는 법(2026)"
 description: "전월세신고제 전면 시행으로 전세 실거래가가 거의 다 공개된다. 부풀린 호가 대신 진짜 전세가율로 저평가 단지를 읽는 실수요자용 실전 가이드."
-date: 2026-07-09
+date: 2026-07-24
 category: 시장 데이터
 slug: rent-report-fullforce-real-jeonse-ratio-undervalued
 tags: 전월세신고제, 전세가율, 저평가

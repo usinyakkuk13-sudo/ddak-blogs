@@ -1,7 +1,7 @@
 ---
 title: "온 동네의 눈과 귀를 고쳐 준 사람 — 어느 동네 전파상 주인의 인생 이야기"
 description: "라디오 하나, TV 한 대가 온 동네의 보물이던 시절, 그것을 고쳐 세상과 이어 준 전파상 주인의 삶을 따라가 봅니다."
-date: 2026-07-09
+date: 2026-07-21
 category: 인생 이야기
 slug: radio-repair-shop-life-story
 tags: 전파상, 라디오수리, 흑백TV, 산업역군, 인생이야기

@@ -1,7 +1,7 @@
 ---
 title: "GTX-C 착공, 이미 오른 A와 다르다 — 아직 저평가된 역세권 찾는 법"
 description: "2026년 실착공에 들어간 GTX-C 노선. A선처럼 다 오르기 전, 아직 안전마진이 남은 역세권을 데이터로 가려내는 실수요자 관점의 분석."
-date: 2026-07-09
+date: 2026-07-10
 category: 저평가 근거
 slug: gtx-c-second-wave-undervalued-stations
 tags: GTX-C, 역세권, 저평가, 안전마진, 실수요

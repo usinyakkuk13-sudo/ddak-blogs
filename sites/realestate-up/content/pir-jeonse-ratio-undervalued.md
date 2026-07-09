@@ -1,7 +1,7 @@
 ---
 title: "PIR과 전세가율로 '지금이 싼가'를 판단하는 법 — 저평가 자가진단"
 description: "서울 PIR 10.2, 전고점 대비 -50%. 소득 대비 집값(PIR)과 전세가율 두 지표로 내가 보는 아파트가 저평가인지 안전마진이 있는지 스스로 계산하는 방법을 정리했습니다."
-date: 2026-07-07
+date: 2026-07-19
 category: 저평가 근거
 slug: pir-jeonse-ratio-undervalued
 tags: PIR, 전세가율, 저평가, 안전마진, 내집마련

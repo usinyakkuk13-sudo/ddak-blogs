@@ -1,7 +1,7 @@
 ---
 title: "청약통장에 '얼마'가 있어야 하나 — 예치금 지역별 기준만 채우면 분양가상한제 저평가 신축의 문이 열린다(2026)"
 description: "민영주택 청약 예치금은 지역·면적별로 다르고, 한 번에 채워도 된다. 실수요자가 예치금 함정을 피해 분상제 안전마진을 줍는 실전 가이드."
-date: 2026-07-09
+date: 2026-07-07
 category: 내집마련 전략
 slug: deposit-region-standard-first-priority-undervalued
 tags: 청약예치금, 민영주택 1순위, 분양가상한제

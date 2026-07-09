@@ -1,7 +1,7 @@
 ---
 title: "6·4·2 대출규제가 만든 '15억 이하' 안전마진 구간 읽는 법"
 description: "10·15 대책의 6억·4억·2억 주담대 한도가 가격대별로 수요를 어떻게 가르는지, 실수요 매수자 관점에서 저평가 구간을 짚어봅니다."
-date: 2026-07-09
+date: 2026-07-13
 category: 금리·정책
 slug: loan-cap-642-price-band-safety-margin-undervalued
 tags: 6-4-2대출규제, 주담대한도, 10.15대책, 안전마진, 실수요

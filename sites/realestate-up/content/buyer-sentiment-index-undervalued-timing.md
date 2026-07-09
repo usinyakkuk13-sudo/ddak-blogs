@@ -1,7 +1,7 @@
 ---
 title: "매수우위지수·매매수급지수 읽는 법 — 저평가 줍줍 타이밍은 지수가 알려준다"
 description: "매매수급지수와 KB 매수우위지수의 100 기준선을 저평가 관점으로 읽는 법. 지수가 바닥일 때가 왜 안전마진이 가장 큰 구간인지 데이터로 정리."
-date: 2026-07-09
+date: 2026-07-06
 category: 시장 데이터
 slug: buyer-sentiment-index-undervalued-timing
 tags: 매매수급지수, 매수우위지수, 저평가타이밍

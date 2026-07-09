@@ -1,7 +1,7 @@
 ---
 title: "전세 신규-갱신 격차 8천만원 — 왜 '지금이 살 때'라는 신호인가"
 description: "서울 전세 신규계약과 갱신계약 보증금 차이가 반년 만에 2배로 벌어졌다. 전세가율이 오르면 매매 안전마진이 커지는 이유를 데이터로 읽는다."
-date: 2026-07-09
+date: 2026-07-11
 category: 저평가 근거
 slug: jeonse-renewal-gap-8000-buy-signal-undervalued
 tags: 전세가율, 전세격차, 안전마진, 저평가, 실수요매수

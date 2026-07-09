@@ -1,7 +1,7 @@
 ---
 title: "온 동네가 흑백TV 앞에 모이던 밤, 김일의 박치기"
 description: "TV 한 대 없던 시절, 부잣집 마당에 모여 김일의 박치기에 환호하던 그때. 힘든 시절 국민에게 꿈을 준 박치기왕의 이야기를 돌아봅니다."
-date: 2026-07-09
+date: 2026-07-14
 category: 그때 그 시절
 slug: kim-il-headbutt-pro-wrestling
 tags: 김일, 프로레슬링, 박치기, 흑백TV, 그때그시절

@@ -1,7 +1,7 @@
 ---
 title: "2027년 입주절벽이 이미 확정된 이유 — 착공 숫자가 알려주는 안전마진"
 description: "착공은 3~5년 뒤 입주를 결정하는 선행지표다. 2023년부터 반토막 난 서울 착공 물량이 왜 지금 무주택 실수요자에게 하방을 막아주는 안전마진인지 데이터로 읽는다."
-date: 2026-07-08
+date: 2026-07-27
 category: 저평가 근거
 slug: supply-cliff-2027-chakgong-safety-margin-undervalued
 tags: 입주절벽, 착공물량, 안전마진, 무주택, 공급부족

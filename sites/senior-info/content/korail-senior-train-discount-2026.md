@@ -1,7 +1,7 @@
 ---
 title: "만 65세 이상 KTX·기차 30% 할인 — 코레일 경로우대 예매 따라하기 (2026년)"
 description: "만 65세 이상이면 KTX·SRT·무궁화 평일 운임을 30% 아낍니다. 조건·제외 요일과 코레일톡 앱 예매 순서를 큰 글씨로 정리했습니다."
-date: 2026-07-09
+date: 2026-07-19
 category: 생활정보
 slug: korail-senior-train-discount-2026
 tags: 경로우대, KTX할인, 코레일톡

@@ -1,7 +1,7 @@
 ---
 title: "일본처럼 되나 — 한국 부동산이 일본 버블 붕괴와 '닮은 점'과 '다른 점'"
 description: "가계부채·PIR·인구는 일본 버블 정점보다 나쁘다. 그래도 붕괴를 단정할 수 없는 이유까지 데이터로 냉정하게 비교한다."
-date: 2026-07-08
+date: 2026-07-15
 category: 위험 신호
 slug: japan-bubble-comparison-warning
 tags: 일본버블, 가계부채, 인구감소, 잃어버린30년

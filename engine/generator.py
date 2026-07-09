@@ -204,6 +204,9 @@ def build():
 
     posts = [parse_post(p) for p in glob.glob(os.path.join(CONTENT_DIR, "*.md"))]
     posts = [p for p in posts if p.get("draft", "false") != "true"]
+    # 드립 공개: 오늘 날짜가 된 글만 게시(미래 날짜 글은 대기)
+    _today = datetime.date.today()
+    posts = [p for p in posts if p["date_obj"] <= _today]
     posts.sort(key=lambda p: p["date_obj"], reverse=True)
 
     # 개별 글

@@ -1,7 +1,7 @@
 ---
 title: "지방 5대 광역시, 미분양은 줄고 입주는 끊긴다 — 지금이 저평가 구간인 이유"
 description: "대구·부산 등 지방 광역시의 미분양 감소와 2026년 이후 입주 절벽을 데이터로 읽고, 실수요자가 안전마진을 확보하는 옥석 가리기 기준을 정리했습니다."
-date: 2026-07-09
+date: 2026-07-14
 category: 저평가 근거
 slug: local-metro-supply-cliff-oversold-undervalued
 tags: 지방부동산, 광역시, 미분양, 입주물량, 저평가

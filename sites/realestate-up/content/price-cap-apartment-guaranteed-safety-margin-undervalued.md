@@ -1,7 +1,7 @@
 ---
 title: "분양가상한제 아파트, 시세보다 30~40% 싸게 확정 — '안전마진'을 청약으로 줍는 법(2026)"
 description: "분양가상한제는 정부가 분양가를 주변 시세보다 낮게 묶어두는 제도라, 당첨되는 순간 시세차익이 사실상 확정됩니다. 실거주의무·전매제한 함정까지 실수요자 관점에서 정리했습니다."
-date: 2026-07-08
+date: 2026-07-20
 category: 저평가 근거
 slug: price-cap-apartment-guaranteed-safety-margin-undervalued
 tags: 분양가상한제, 안전마진, 청약전략

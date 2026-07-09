@@ -1,7 +1,7 @@
 ---
 title: "전세보증 LTV 70%·전세대출 보증 축소 — 전세의 '방패'가 얇아질 때, 실수요 매수자가 읽어야 할 저평가 신호"
 description: "전세보증금 반환보증 LTV 인하와 전세대출 보증비율 축소가 전세 시장을 어떻게 좁히는지, 집을 사려는 실수요자 관점에서 안전마진과 저평가 타이밍을 짚어봅니다."
-date: 2026-07-08
+date: 2026-07-11
 category: 금리·정책
 slug: jeonse-guarantee-ltv-cut-buyer-undervalued
 tags: 전세보증, 전세대출, LTV, 갭투자, 저평가, 실수요자

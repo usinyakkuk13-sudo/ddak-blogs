@@ -1,7 +1,7 @@
 ---
 title: "재건축은 30년, 모아타운은 2~3년 — 노후 저층 주거지가 아직 저평가로 남아 있는 이유와 실수요자가 옥석 가리는 법(2026)"
 description: "모아타운·모아주택(소규모주택정비)이 왜 저평가 구간으로 남아 있는지, 실수요자가 분담금·지분쪼개기 함정을 피하고 안전마진 있는 매물을 고르는 법을 2026년 기준으로 정리했다."
-date: 2026-07-08
+date: 2026-07-15
 category: 저평가 근거
 slug: moatown-small-scale-redevelopment-safety-margin-undervalued
 tags: 모아타운, 소규모주택정비, 저평가

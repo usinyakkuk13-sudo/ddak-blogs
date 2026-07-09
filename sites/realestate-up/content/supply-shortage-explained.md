@@ -1,7 +1,7 @@
 ---
 title: "새 아파트는 왜 늘 부족할까 — 공급 부족의 구조"
 description: "부동산 상승론의 핵심인 '공급 부족'을 인허가부터 착공, 준공까지의 시차와 도심 재건축 규제를 통해 쉽게 설명합니다."
-date: 2026-07-05
+date: 2026-07-27
 category: 시장 데이터
 slug: supply-shortage-explained
 tags: 주택공급, 인허가, 재건축, 부동산분석

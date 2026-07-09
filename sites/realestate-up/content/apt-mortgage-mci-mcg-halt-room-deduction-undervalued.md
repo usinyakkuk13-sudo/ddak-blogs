@@ -1,7 +1,7 @@
 ---
 title: "은행이 MCI·MCG를 끊으면서 '아파트 주담대'에도 방공제가 부활했다 — 현금장벽이 높아진 지금이 실수요자에겐 저평가 신호인 이유"
 description: "2026년 KB·하나·농협이 MCI·MCG를 중단하며 아파트 주담대 한도가 지역별로 최대 5,500만원 깎였습니다. 현금장벽이 높아진 이 국면을 실수요 매수자가 저평가 기회로 뒤집어 읽는 법을 정리했습니다."
-date: 2026-07-08
+date: 2026-07-05
 category: 금리·정책
 slug: apt-mortgage-mci-mcg-halt-room-deduction-undervalued
 tags: MCI, MCG, 방공제, 주택담보대출, 저평가

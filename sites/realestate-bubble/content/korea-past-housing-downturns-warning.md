@@ -1,7 +1,7 @@
 ---
 title: "집값은 '한 번도' 안 떨어졌다는 거짓말 — 한국 부동산이 실제로 무너졌던 두 번의 기록"
 description: "IMF와 2008년 금융위기, 서울 집값은 실제로 얼마나·얼마나 오래 빠졌나. 과거 하락 사이클이 지금 매수자에게 보내는 경고를 데이터로 짚는다."
-date: 2026-07-08
+date: 2026-07-17
 category: 위험 신호
 slug: korea-past-housing-downturns-warning
 tags: 부동산하락, 부동산사이클, IMF집값, 하우스푸어
