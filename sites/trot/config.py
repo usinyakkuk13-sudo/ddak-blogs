@@ -6,7 +6,7 @@ SITE = {
     "url": "https://example-trot.pages.dev",
     "adsense_client": "",
     "author": "트로트 한마당 편집부",
-    "email": "usinyakkuk13@gmail.com",
+    "email": "geusijeol.story@gmail.com",
 }
 
 CATEGORIES = [

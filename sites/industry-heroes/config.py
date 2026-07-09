@@ -6,7 +6,8 @@ SITE = {
     "url": "https://example-industry-heroes.pages.dev",
     "adsense_client": "",
     "author": "그 시절 우리는 편집부",
-    "email": "usinyakkuk13@gmail.com",
+    "email": "geusijeol.story@gmail.com",
+    "accept_stories": True,
 }
 
 CATEGORIES = [

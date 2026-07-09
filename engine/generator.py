@@ -9,6 +9,9 @@ import os, re, html, shutil, datetime, glob, sys, importlib.util
 SITE = {}; CATEGORIES = []; CAT_NAME_TO_SLUG = {}
 CONTENT_DIR = STATIC_DIR = OUT = ""
 
+# 독자 사연 접수 구글 폼(모든 사이트 공용)
+STORY_FORM_URL = "https://forms.gle/PZe2mrym4GFboeLX8"
+
 def load_site(site_dir):
     global SITE, CATEGORIES, CAT_NAME_TO_SLUG, CONTENT_DIR, STATIC_DIR, OUT
     spec = importlib.util.spec_from_file_location("sitecfg", os.path.join(site_dir, "config.py"))
@@ -128,6 +131,7 @@ def head(title, description, path, og_type="website", published=None):
                f'adsbygoogle.js?client={SITE["adsense_client"]}" crossorigin="anonymous"></script>\n'
                f'<meta name="google-adsense-account" content="{SITE["adsense_client"]}">')
     pub = f'<meta property="article:published_time" content="{published}">' if published else ""
+    story_nav = (f'<a href="{STORY_FORM_URL}" class="nav-story" target="_blank" rel="noopener" style="border:1px solid currentColor;border-radius:999px;padding:4px 12px;font-weight:600;">✒️ 사연 보내기</a>') if SITE.get('accept_stories') else ''
     return f'''<!doctype html>
 <html lang="ko">
 <head>
@@ -154,14 +158,15 @@ def head(title, description, path, og_type="website", published=None):
 <body>
 <header class="site-header"><div class="container">
 <a href="/" class="site-title">든든한 <span>노후</span></a>
-<nav class="nav">{nav_html()}</nav>
+<nav class="nav">{nav_html()}{story_nav}</nav>
 </div></header>
 <main>'''
 
 def footer():
+    story_foot = (f'<a href="{STORY_FORM_URL}" target="_blank" rel="noopener">✒️ 사연 보내기</a>') if SITE.get('accept_stories') else ''
     return f'''</main>
 <footer class="site-footer"><div class="container">
-<div class="fnav"><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a></div>
+<div class="fnav"><a href="/about/">소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a>{story_foot}</div>
 <div>© {datetime.date.today().year} {SITE['name']}. 본 사이트 정보는 참고용이며, 정확한 내용은 관계 기관에 확인하시기 바랍니다.</div>
 </div></footer>
 </body></html>'''
@@ -188,9 +193,13 @@ def write(path, content):
 # ---------- 빌드 ----------
 def build():
     if os.path.isdir(OUT):
+        # 일부 마운트 파일시스템은 삭제(unlink)를 막지만 덮어쓰기는 허용한다.
         for f in os.listdir(OUT):
             fp = os.path.join(OUT, f)
-            shutil.rmtree(fp) if os.path.isdir(fp) else os.remove(fp)
+            try:
+                shutil.rmtree(fp) if os.path.isdir(fp) else os.remove(fp)
+            except (PermissionError, OSError):
+                pass
     os.makedirs(OUT, exist_ok=True)
 
     posts = [parse_post(p) for p in glob.glob(os.path.join(CONTENT_DIR, "*.md"))]

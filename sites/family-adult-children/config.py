@@ -6,7 +6,7 @@ SITE = {
     "url": "https://example-family-adult-children.pages.dev",
     "adsense_client": "",
     "author": "부모 마음 편집부",
-    "email": "usinyakkuk13@gmail.com",
+    "email": "geusijeol.story@gmail.com",
 }
 
 CATEGORIES = [

@@ -6,7 +6,7 @@ SITE = {
     "url": "https://example-ai-guide.pages.dev",
     "adsense_client": "",
     "author": "오늘의 AI 편집부",
-    "email": "usinyakkuk13@gmail.com",
+    "email": "geusijeol.story@gmail.com",
 }
 
 CATEGORIES = [

@@ -10,7 +10,7 @@ SITE = {
     # ▼ 애드센스 승인 후 발급받는 값 (예: "ca-pub-1234567890123456"). 비워두면 광고 미출력.
     "adsense_client": "",
     "author": "든든한 노후 편집부",
-    "email": "usinyakkuk13@gmail.com",
+    "email": "geusijeol.story@gmail.com",
 }
 
 # (URL슬러그, 화면표기명, 설명)

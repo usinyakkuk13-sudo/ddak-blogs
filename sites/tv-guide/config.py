@@ -6,7 +6,7 @@ SITE = {
     "url": "https://example-tv-guide.pages.dev",
     "adsense_client": "",
     "author": "오늘 뭐 보지 편집부",
-    "email": "usinyakkuk13@gmail.com",
+    "email": "geusijeol.story@gmail.com",
 }
 
 CATEGORIES = [
