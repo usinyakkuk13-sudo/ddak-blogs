@@ -157,7 +157,7 @@ def head(title, description, path, og_type="website", published=None):
 </head>
 <body>
 <header class="site-header"><div class="container">
-<a href="/" class="site-title">든든한 <span>노후</span></a>
+<a href="/" class="site-title">{SITE['name']}</a>
 <nav class="nav">{nav_html()}{story_nav}</nav>
 </div></header>
 <main>'''
@@ -255,8 +255,8 @@ def build():
         write(f"category/{slug}/index.html", page)
 
     # 고정 페이지
-    write("about/index.html", static_page("소개", "든든한 노후 사이트 소개", ABOUT_HTML))
-    write("contact/index.html", static_page("문의", "든든한 노후 문의 안내", CONTACT_HTML()))
+    write("about/index.html", static_page("소개", f"{SITE['name']} 소개", ABOUT_HTML()))
+    write("contact/index.html", static_page("문의", f"{SITE['name']} 문의", CONTACT_HTML()))
     write("privacy/index.html", static_page("개인정보처리방침", "개인정보처리방침 및 광고 안내", PRIVACY_HTML()))
 
     # sitemap / rss / robots / css
@@ -306,16 +306,13 @@ def write_rss(posts):
            + items + "</channel></rss>\n")
     open(os.path.join(OUT, "rss.xml"), "w", encoding="utf-8").write(xml)
 
-ABOUT_HTML = '''<h1>사이트 소개</h1>
-<p><strong>든든한 노후</strong>는 60대 이상 어르신과 그 가족을 위해 만든 생활정보 사이트입니다. 연금과 복지 혜택, 건강 관리, 스마트폰 사용법처럼 꼭 필요하지만 찾기 어려운 정보를 <strong>큰 글씨로, 쉬운 말로</strong> 정리해 드립니다.</p>
-<h2>우리가 다루는 정보</h2>
-<ul>
-<li><strong>연금·복지</strong> — 기초연금, 국민연금, 정부지원금 신청 방법과 혜택</li>
-<li><strong>건강</strong> — 노년 건강관리, 질병 예방, 국가건강검진</li>
-<li><strong>스마트폰</strong> — 카카오톡, 유튜브, 유용한 앱을 쉽게 쓰는 법</li>
-<li><strong>생활정보</strong> — 어르신 할인·혜택 등 실생활 정보</li>
-</ul>
-<p>모든 글은 공신력 있는 자료를 바탕으로 작성하되, 실제 신청·이용 전에는 반드시 관계 기관에서 최신 내용을 확인하시길 권합니다.</p>'''
+def ABOUT_HTML():
+    cats = "".join(f"<li><strong>{n}</strong> — {d}</li>" for _, n, d in CATEGORIES)
+    return f'''<h1>{SITE['name']} 소개</h1>
+<p><strong>{SITE['name']}</strong> — {SITE['tagline']}. {SITE['subtitle']}</p>
+<h2>우리가 다루는 내용</h2>
+<ul>{cats}</ul>
+<p>모든 글은 신뢰할 수 있는 자료를 바탕으로 정성껏 작성하되, 실제 이용·판단 전에는 관계 기관이나 전문가의 최신 정보를 확인하시길 권합니다.</p>'''
 
 def CONTACT_HTML():
     return f'''<h1>문의하기</h1>
@@ -325,7 +322,7 @@ def CONTACT_HTML():
 
 def PRIVACY_HTML():
     return f'''<h1>개인정보처리방침</h1>
-<p>든든한 노후(이하 '사이트')는 이용자의 개인정보를 소중히 다룹니다. 본 방침은 사이트가 정보를 어떻게 수집·이용하는지 안내합니다.</p>
+<p>{SITE['name']}(이하 '사이트')는 이용자의 개인정보를 소중히 다룹니다. 본 방침은 사이트가 정보를 어떻게 수집·이용하는지 안내합니다.</p>
 <h2>1. 수집하는 정보</h2>
 <p>사이트는 회원가입 절차가 없으며 이름, 연락처 등 개인을 식별하는 정보를 직접 수집하지 않습니다. 다만 방문 통계 및 광고 제공을 위해 쿠키(cookie)와 접속 기록이 자동으로 수집될 수 있습니다.</p>
 <h2>2. 광고 및 쿠키 (Google AdSense)</h2>
