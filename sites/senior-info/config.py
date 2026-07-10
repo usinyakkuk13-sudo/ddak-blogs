@@ -6,9 +6,11 @@ SITE = {
     "tagline": "연금·복지·건강·스마트폰까지, 어르신 생활정보를 쉽게",
     "subtitle": "복잡한 정보를 큰 글씨로, 쉬운 말로 정리해 드립니다.",
     # ▼ 배포 후 실제 도메인으로 바꾸세요 (끝에 / 없이). 예: "https://ddndhu.com"
-    "url": "https://example-senior.pages.dev",
+    "url": "https://ornate-cucurucho-382c13.netlify.app",
     # ▼ 애드센스 승인 후 발급받는 값 (예: "ca-pub-1234567890123456"). 비워두면 광고 미출력.
-    "adsense_client": "",
+    "adsense_client": "ca-pub-9239560285278799",
+    # ▼ 구글 애널리틱스 측정 ID (예: "G-XXXXXXXXXX"). 비워두면 통계 미수집.
+    "ga_id": "G-V6D3PT90XW",
     "author": "든든한 노후 편집부",
     "email": "geusijeol.story@gmail.com",
 }
@@ -21,5 +23,4 @@ CATEGORIES = [
     ("life",       "생활정보",   "할인·혜택 등 실생활에 도움되는 정보"),
 ]
 
-# 화면표기명 -> 슬러그 (글 front matter의 category는 화면표기명으로 적습니다)
-CAT_NAME_TO_SLUG = {name: slug for slug, name, _ in CATEGORIES}
+# 화면표기명 -> 슬러

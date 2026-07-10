@@ -130,6 +130,11 @@ def head(title, description, path, og_type="website", published=None):
         ads = (f'<script async src="https://pagead2.googlesyndication.com/pagead/js/'
                f'adsbygoogle.js?client={SITE["adsense_client"]}" crossorigin="anonymous"></script>\n'
                f'<meta name="google-adsense-account" content="{SITE["adsense_client"]}">')
+    ga = ""
+    if SITE.get("ga_id"):
+        ga = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={SITE["ga_id"]}"></script>\n'
+              f'<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}'
+              f"gtag('js',new Date());gtag('config','{SITE['ga_id']}');</script>")
     pub = f'<meta property="article:published_time" content="{published}">' if published else ""
     story_nav = (f'<a href="{STORY_FORM_URL}" class="nav-story" target="_blank" rel="noopener" style="border:1px solid currentColor;border-radius:999px;padding:4px 12px;font-weight:600;">✒️ 사연 보내기</a>') if SITE.get('accept_stories') else ''
     return f'''<!doctype html>
@@ -153,6 +158,7 @@ def head(title, description, path, og_type="website", published=None):
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="/style.css">
+{ga}
 {ads}
 </head>
 <body>
@@ -207,6 +213,11 @@ def build():
     # 드립 공개: 오늘 날짜가 된 글만 게시(미래 날짜 글은 대기)
     _today = datetime.date.today()
     posts = [p for p in posts if p["date_obj"] <= _today]
+    # 안전장치: config에 없는 카테고리는 첫 카테고리로 자동 교정(폐지된 카테고리 방지)
+    _valid = {n for _, n, _ in CATEGORIES}
+    for _p in posts:
+        if _p.get("category") not in _valid:
+            _p["category"] = CATEGORIES[0][1]
     posts.sort(key=lambda p: p["date_obj"], reverse=True)
 
     # 개별 글
@@ -264,6 +275,12 @@ def build():
     write_rss(posts)
     open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8").write(
         f"User-agent: *\nAllow: /\n\nSitemap: {SITE['url']}/sitemap.xml\n")
+    # ads.txt : 애드센스 승인·수익화에 필요 (client가 ca-pub-XXXX 형태일 때만 출력)
+    if SITE.get("adsense_client"):
+        pub_id = SITE["adsense_client"].replace("ca-", "")  # ca-pub-XXX -> pub-XXX
+        open(os.path.join(OUT, "ads.txt"), "w", encoding="utf-8").write(
+            f"google.com, {pub_id}, DIRECT, f08c47fec0942fa0\n")
+
     shutil.copy(os.path.join(STATIC_DIR, "style.css"), os.path.join(OUT, "style.css"))
     # Cloudflare Pages가 .md 등을 건드리지 않도록 빈 파일 방지용 없음
     print(f"빌드 완료: 글 {len(posts)}개, 카테고리 {len(CATEGORIES)}개 -> public/")

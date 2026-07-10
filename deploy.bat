@@ -7,3 +7,6 @@ if exist "%LOCALAPPDATA%\Programs\Git\cmd\git.exe" set "GIT=%LOCALAPPDATA%\Progr
 "%GIT%" add -A
 "%GIT%" commit -m "auto deploy"
 "%GIT%" push
+echo.
+echo ===== push done. opening Netlify credit balance ... =====
+start "" "https://app.netlify.com/teams/usinyakkuk13/billing/general"

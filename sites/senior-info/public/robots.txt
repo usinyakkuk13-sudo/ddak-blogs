@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example-senior.pages.dev/sitemap.xml
+Sitemap: https://ornate-cucurucho-382c13.netlify.app/sitemap.xml
