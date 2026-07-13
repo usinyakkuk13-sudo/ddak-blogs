@@ -16,7 +16,7 @@ def load_site(site_dir):
     global SITE, CATEGORIES, CAT_NAME_TO_SLUG, CONTENT_DIR, STATIC_DIR, OUT
     spec = importlib.util.spec_from_file_location("sitecfg", os.path.join(site_dir, "config.py"))
     cfg = importlib.util.module_from_spec(spec); spec.loader.exec_module(cfg)
-    SITE = cfg.SITE; CATEGORIES = cfg.CATEGORIES; CAT_NAME_TO_SLUG = cfg.CAT_NAME_TO_SLUG
+    SITE = cfg.SITE; CATEGORIES = cfg.CATEGORIES; CAT_NAME_TO_SLUG = getattr(cfg, "CAT_NAME_TO_SLUG", None) or {n: sl for sl, n, _ in cfg.CATEGORIES}
     CONTENT_DIR = os.path.join(site_dir, "content")
     STATIC_DIR = os.path.join(site_dir, "static")
     OUT = os.path.join(site_dir, "public")
