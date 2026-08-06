@@ -62,3 +62,18 @@ article.post blockquote{border-left:5px solid var(--accent);background:var(--car
   article.post h1{font-size:27px}
   article.post h2{font-size:23px}
 }
+
+/* 확인처(공식 출처) */
+.sources{margin-top:36px;padding:20px 22px;background:#f6f8fa;border:2px solid var(--border);border-radius:12px}
+.sources h2{margin-top:0;font-size:22px;border:0;padding:0}
+.sources p{font-size:17px;color:#555;margin:6px 0 12px}
+.sources ul{margin:0;padding-left:20px}
+.sources li{margin-bottom:8px;line-height:1.7}
+.sources a{font-weight:700}
+/* 함께 보면 좋은 글 */
+.related{margin-top:36px;padding-top:20px;border-top:2px solid var(--border)}
+.related h2{margin-top:0;font-size:22px;border:0;padding:0}
+.related ul{margin:12px 0;padding-left:20px}
+.related li{margin-bottom:10px;line-height:1.6}
+.related a{font-weight:600}
+article.post a.cat{text-decoration:none}

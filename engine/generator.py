@@ -12,6 +12,86 @@ CONTENT_DIR = STATIC_DIR = OUT = ""
 # 독자 사연 접수 구글 폼(모든 사이트 공용)
 STORY_FORM_URL = "https://forms.gle/PZe2mrym4GFboeLX8"
 
+# ---------- 공식 출처(확인처) 매핑 ----------
+# YMYL(연금·복지·건강·금융) 글은 근거가 되는 공식 기관 링크를 반드시 노출한다.
+# 사이트 config.py 에 SOURCE_PACK = "senior" 가 있을 때만 적용된다.
+SOURCE_PACKS = {
+    "senior": {
+        # 키워드 -> [(기관명, URL, 안내문)]
+        "keywords": [
+            (("기초연금",), ("보건복지부 기초연금", "https://basicpension.mohw.go.kr/", "선정기준액·모의계산·신청")),
+            (("국민연금", "노령연금", "유족연금", "분할연금", "반납", "추납", "임의가입"),
+             ("국민연금공단", "https://www.nps.or.kr/", "내 연금 조회·상담 국번없이 1355")),
+            (("장기요양", "요양보호사", "요양등급", "재가급여", "가족요양"),
+             ("국민건강보험공단 노인장기요양보험", "https://www.longtermcare.or.kr/", "등급신청·급여 안내 1577-1000")),
+            (("건강보험", "본인부담", "피부양자", "임의계속"),
+             ("국민건강보험공단", "https://www.nhis.or.kr/", "자격·보험료 상담 1577-1000")),
+            (("건강검진", "국가검진"), ("건강iN 검진 안내", "https://www.nhis.or.kr/", "검진 대상 조회")),
+            (("암검진", "암 검진", "국가암"), ("국가암정보센터", "https://www.cancer.go.kr/", "검진 주기·비용")),
+            (("치매",), ("중앙치매센터", "https://www.nid.or.kr/", "치매상담콜센터 1899-9988")),
+            (("예방접종", "백신", "대상포진", "독감", "인플루엔자", "폐렴구균"),
+             ("질병관리청 예방접종도우미", "https://nip.kdca.go.kr/", "무료 접종 대상·지정 의료기관 찾기")),
+            (("생계급여", "의료급여", "주거급여", "기초생활", "차상위", "긴급복지"),
+             ("복지로", "https://www.bokjiro.go.kr/", "복지 모의계산·온라인 신청, 129")),
+            (("주택연금",), ("한국주택금융공사", "https://www.hf.go.kr/", "예상 월지급금 조회 1688-8114")),
+            (("농지연금",), ("농지은행 농지연금", "https://www.fbo.or.kr/", "가입 조건·수령액 조회 1577-7770")),
+            (("주민등록", "정부24", "등본", "인감"), ("정부24", "https://www.gov.kr/", "민원 발급·정부 서비스 1588-2188")),
+            (("법률", "상속", "유언", "후견"), ("대한법률구조공단", "https://www.klac.or.kr/", "무료 법률상담 132")),
+            (("문화누리",), ("문화누리카드", "https://www.mnuri.kr/", "발급·잔액 조회 1544-3412")),
+            (("코레일", "기차", "철도"), ("코레일", "https://www.letskorail.com/", "경로 할인·예매")),
+            (("알뜰폰",), ("알뜰폰 허브", "https://www.mvnohub.kr/", "요금제 비교")),
+            (("디지털배움터",), ("디지털배움터", "https://www.디지털배움터.kr/", "무료 교육 신청 1800-0096")),
+            (("에너지바우처",), ("에너지바우처", "https://www.energyv.or.kr/", "신청·잔액 조회 1600-3190")),
+            (("보이스피싱", "사기", "명의도용", "금융"), ("금융감독원", "https://www.fss.or.kr/", "금융 민원·상담 1332")),
+            (("노인일자리", "일자리"), ("노인일자리 여기", "https://www.seniorro.or.kr/", "지역별 일자리 조회")),
+            (("연명의료", "사전연명"), ("국립연명의료관리기관", "https://www.lst.go.kr/", "등록기관 찾기 1855-0075")),
+        ],
+        # 카테고리 기본 출처(키워드가 안 걸려도 최소 1개는 붙는다)
+        "defaults": {
+            "연금·복지": ("복지로", "https://www.bokjiro.go.kr/", "복지 모의계산·온라인 신청, 보건복지상담센터 129"),
+            "건강": ("질병관리청 국가건강정보포털", "https://health.kdca.go.kr/", "질환별 표준 건강정보"),
+            "스마트폰": ("디지털배움터", "https://www.디지털배움터.kr/", "어르신 무료 스마트폰 교육 1800-0096"),
+            "생활정보": ("정부24", "https://www.gov.kr/", "정부 민원·혜택 통합 안내 1588-2188"),
+        },
+    }
+}
+
+def sources_html(p):
+    """글 내용에 맞는 공식 확인처 목록을 만든다."""
+    pack = SOURCE_PACKS.get(SITE.get("source_pack") or "")
+    if not pack:
+        return ""
+    haystack = (p.get("title", "") + " " + p.get("description", "") + " "
+                + " ".join(p.get("tags", [])) + " " + p.get("body_html", ""))
+    picked, seen = [], set()
+    for words, src in pack["keywords"]:
+        if any(w in haystack for w in words) and src[1] not in seen:
+            seen.add(src[1]); picked.append(src)
+    d = pack["defaults"].get(p.get("category"))
+    if d and d[1] not in seen:
+        seen.add(d[1]); picked.append(d)
+    if not picked:
+        return ""
+    lis = "".join(
+        f'<li><a href="{u}" target="_blank" rel="noopener nofollow">{html.escape(n)}</a>'
+        f' — {html.escape(memo)}</li>' for n, u, memo in picked[:5])
+    return ('<section class="sources"><h2>정확한 내용은 여기서 확인하세요</h2>'
+            '<p>금액·기준은 해마다 바뀝니다. 신청 전에 아래 공식 기관에서 최신 내용을 꼭 확인해 주세요.</p>'
+            f'<ul>{lis}</ul></section>')
+
+def related_html(p, posts):
+    """같은 분야 글 4개를 연결한다."""
+    same = [q for q in posts if q["category"] == p["category"] and q["slug"] != p["slug"]]
+    if len(same) < 2:
+        same = [q for q in posts if q["slug"] != p["slug"]]
+    if not same:
+        return ""
+    pick = same[:4]
+    lis = "".join(f'<li><a href="/posts/{q["slug"]}/">{html.escape(q["title"])}</a></li>' for q in pick)
+    return (f'<section class="related"><h2>함께 보면 좋은 글</h2><ul>{lis}</ul>'
+            f'<p><a href="/category/{CAT_NAME_TO_SLUG.get(p["category"], "")}/">'
+            f'{html.escape(p["category"])} 글 전체 보기 →</a></p></section>')
+
 def load_site(site_dir):
     global SITE, CATEGORIES, CAT_NAME_TO_SLUG, CONTENT_DIR, STATIC_DIR, OUT
     spec = importlib.util.spec_from_file_location("sitecfg", os.path.join(site_dir, "config.py"))
@@ -233,18 +313,21 @@ def build():
             f'"publisher":{{"@type":"Organization","name":{_j(SITE["name"])}}},'
             f'"mainEntityOfPage":"{SITE["url"]}/posts/{p["slug"]}/"'
             '}</script>')
+        cat_slug = CAT_NAME_TO_SLUG.get(p["category"], "")
         body = (head(p["title"], p["description"], f'/posts/{p["slug"]}/', "article", iso)
                 + jsonld
                 + '<div class="container"><article class="post">'
-                + f'<span class="cat">{p["category"]}</span>'
+                + f'<a class="cat" href="/category/{cat_slug}/">{p["category"]}</a>'
                 + f'<h1>{html.escape(p["title"])}</h1>'
-                + f'<div class="meta">📅 {d}</div>'
-                + ad_block()
+                + f'<div class="meta">📅 {d} 작성 · 최종 확인 {_today.strftime("%Y년 %m월 %d일")}'
+                  f' · <a href="/about/">{html.escape(SITE["author"])}</a></div>'
                 + p["body_html"]
                 + ad_block()
-                + '<p class="disclaimer">※ 이 글은 일반적인 정보 제공을 위한 것으로, 개인별 상황에 따라 다를 수 있습니다. '
-                  '정확한 내용은 관계 기관(정부24, 복지로, 국민연금공단 등)에서 확인하세요.</p>'
-                + '<p style="margin-top:20px"><a href="/">← 다른 글 더 보기</a></p>'
+                + sources_html(p)
+                + '<p class="disclaimer">※ 이 글은 일반적인 정보 제공을 위한 것으로, 제도·금액·기준은 개인 상황과 시점에 따라 달라집니다. '
+                  '의료·법률·금융에 관한 개별 판단은 담당 기관이나 전문가와 상의하세요. '
+                  '내용에 잘못된 부분이 있으면 <a href="/contact/">문의 페이지</a>로 알려주시면 확인 후 바로잡겠습니다.</p>'
+                + related_html(p, posts)
                 + '</article></div>' + footer())
         write(f'posts/{p["slug"]}/index.html', body)
 
@@ -325,17 +408,50 @@ def write_rss(posts):
 
 def ABOUT_HTML():
     cats = "".join(f"<li><strong>{n}</strong> — {d}</li>" for _, n, d in CATEGORIES)
+    mission = SITE.get("about_mission") or (
+        f"<p><strong>{SITE['name']}</strong>는 {SITE['tagline']}를 목표로 하는 1인 운영 정보 사이트입니다. "
+        f"{SITE['subtitle']}</p>")
     return f'''<h1>{SITE['name']} 소개</h1>
-<p><strong>{SITE['name']}</strong> — {SITE['tagline']}. {SITE['subtitle']}</p>
-<h2>우리가 다루는 내용</h2>
+{mission}
+<h2>다루는 분야</h2>
 <ul>{cats}</ul>
-<p>모든 글은 신뢰할 수 있는 자료를 바탕으로 정성껏 작성하되, 실제 이용·판단 전에는 관계 기관이나 전문가의 최신 정보를 확인하시길 권합니다.</p>'''
+<h2>글을 쓰는 원칙</h2>
+<ol>
+<li><strong>검색은 많은데 제대로 정리된 글이 없는 주제를 먼저 씁니다.</strong> 이미 잘 정리된 주제를 한 번 더 쓰는 대신,
+흩어져 있어 찾기 어려운 제도·절차를 한 편에 모으는 데 집중합니다.</li>
+<li><strong>공식 자료를 근거로 삼습니다.</strong> 금액·자격 요건·신청 절차는 소관 부처와 공공기관 자료를 확인해 쓰고,
+모든 글 아래에 <em>확인처</em>로 해당 기관 링크와 전화번호를 함께 답니다.</li>
+<li><strong>읽는 분의 다음 행동까지 적습니다.</strong> "어디에 전화해서, 무엇을 들고, 언제까지" 가 없으면 글을 올리지 않습니다.</li>
+<li><strong>큰 글씨와 쉬운 말을 씁니다.</strong> 행정 용어는 처음 나올 때 풀어 쓰고, 표와 번호 목록으로 눈이 덜 피로하게 만듭니다.</li>
+<li><strong>과장하지 않습니다.</strong> "무조건 받는다", "누구나 가능" 같은 표현을 쓰지 않고, 감액·제외 조건도 함께 밝힙니다.</li>
+</ol>
+<h2>정확성 관리</h2>
+<p>제도는 해마다 바뀝니다. 각 글에는 작성일과 <strong>최종 확인일</strong>을 표시하고, 기준이 바뀌면 본문을 고쳐 최종 확인일을 갱신합니다.
+그럼에도 시점 차이나 개인별 사정으로 실제 결과가 다를 수 있으므로, 신청 전에는 글 아래 확인처에서 최신 기준을 다시 확인해 주세요.</p>
+<h2>틀린 내용을 발견하셨다면</h2>
+<p>정정 요청은 언제든 환영합니다. <a href="/contact/">문의 페이지</a>나
+<a href="mailto:{SITE['email']}">{SITE['email']}</a>로 알려주시면 확인 후 본문을 수정하고 최종 확인일을 갱신합니다.</p>
+<h2>수익 안내</h2>
+<p>이 사이트는 운영비를 충당하기 위해 광고를 게재합니다. 광고는 글의 내용과 무관하게 자동으로 표시되며,
+특정 상품·기관을 홍보하는 대가를 받고 글을 쓰지 않습니다.</p>
+<p style="color:#888">운영·편집: {SITE['author']} · 연락처: <a href="mailto:{SITE['email']}">{SITE['email']}</a></p>'''
 
 def CONTACT_HTML():
     return f'''<h1>문의하기</h1>
-<p>사이트 내용에 대한 문의, 정정 요청, 제휴 제안은 아래 이메일로 보내주세요.</p>
+<p>아래 이메일로 보내주시면 확인 후 답변드립니다. 1인이 운영하는 사이트라 답변에 며칠 걸릴 수 있는 점 양해 부탁드립니다.</p>
 <p style="font-size:22px"><strong>이메일:</strong> <a href="mailto:{SITE['email']}">{SITE['email']}</a></p>
-<p>정확하고 도움되는 정보를 전하기 위해 늘 노력하겠습니다.</p>'''
+<h2>이런 문의를 받습니다</h2>
+<ul>
+<li><strong>내용 정정 요청</strong> — 금액·기준·절차가 바뀌었거나 잘못된 부분을 알려주세요.
+어느 글(제목 또는 주소)의 어느 부분인지 적어주시면 훨씬 빠르게 고칠 수 있습니다.</li>
+<li><strong>다뤄줬으면 하는 주제</strong> — 찾아봐도 잘 정리된 글이 없는 주제를 알려주시면 우선 검토합니다.</li>
+<li><strong>제휴·인용 문의</strong> — 본문 인용은 출처와 링크를 밝히시면 자유롭게 하셔도 됩니다.</li>
+<li><strong>개인정보·광고 관련 문의</strong> — <a href="/privacy/">개인정보처리방침</a>을 함께 참고해 주세요.</li>
+</ul>
+<h2>답변드리기 어려운 문의</h2>
+<p>개인별 수급 자격 판정, 진단·치료 상담, 법률 자문은 이 사이트에서 판단해 드릴 수 없습니다.
+각 글 아래 <strong>확인처</strong>에 적어둔 담당 기관 전화번호로 문의하시는 편이 정확하고 빠릅니다.</p>
+<p style="color:#888">운영·편집: {SITE['author']}</p>'''
 
 def PRIVACY_HTML():
     return f'''<h1>개인정보처리방침</h1>
